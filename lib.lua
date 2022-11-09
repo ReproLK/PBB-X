@@ -460,7 +460,6 @@ function Library:create(options)
 		ZIndexBehavior = Enum.ZIndexBehavior.Global,
         IgnoreGuiInset = true
 	})
-    syn.protect_gui(gui)
 
 	local notificationHolder = gui:object("Frame", {
 		AnchorPoint = Vector2.new(1, 1),
