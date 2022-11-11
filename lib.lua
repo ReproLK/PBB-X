@@ -1683,6 +1683,11 @@ function Library:dropdown(options)
 
 			items[i] = {{label, value}, newItem}
 
+			Library._resize_tab({
+				container = container,
+				layout = layout
+			})
+			
 			do
 				local hovered = false
 				local down = false
@@ -1717,13 +1722,8 @@ function Library:dropdown(options)
 					selectedText:tween{Size = UDim2.fromOffset(selectedText.TextBounds.X + 20, 20), Length = 0.05}
 					options.Callback(value)
 				end)
-			end		
+			end
 		end
-
-		Library._resize_tab({
-			container = container,
-			layout = layout
-		})
 	end
 
 	return methods
