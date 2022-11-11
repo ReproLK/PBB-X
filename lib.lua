@@ -1345,6 +1345,12 @@ function Library:toggle(options)
 	end
 
 	local function toggle()
+		if options.checkCallback then
+			local r = options.checkCallback()
+			if r ~= nil and not r then
+				return
+			end
+		end
 		toggled = not toggled
 		if toggled then
 			offIcon:crossfade(onIcon, 0.1)
