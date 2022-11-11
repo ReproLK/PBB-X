@@ -1290,7 +1290,7 @@ function Library:toggle(options)
 		StartingState = false,
 		Description = nil,
 		Callback = function(state) end,
-		checkCallback = function() return end
+		checkCallback = function(state) return end
 	}, options)
 
 	local toggleContainer = self.container:object("TextButton", {
@@ -1346,7 +1346,7 @@ function Library:toggle(options)
 	end
 
 	local function toggle()
-		local r = options.checkCallback()
+		local r = options.checkCallback(toggled)
 		if r ~= nil and not r then return end
 		toggled = not toggled
 		if toggled then
@@ -1416,7 +1416,7 @@ function Library:dropdown(options)
 		StartingText = "Select...",
 		Items = {},
 		Callback = function(item) return end,
-		checkCallback = function() return end
+		checkCallback = function(item) return end
 	}, options)
 
 
@@ -1554,7 +1554,7 @@ function Library:dropdown(options)
 			end)
 
 			newItem.MouseButton1Click:connect(function()
-				local r = options.checkCallback()
+				local r = options.checkCallback(value)
 				if r ~= nil and not r then return end
 				toggle()
 				selectedText.Text = newItem.Text
@@ -1710,7 +1710,7 @@ function Library:dropdown(options)
 				end)
 
 				newItem.MouseButton1Click:connect(function()
-					local r = options.checkCallback()
+					local r = options.checkCallback(value)
 					if r ~= nil and not r then return end
 					toggle()
 					selectedText.Text = newItem.Text
