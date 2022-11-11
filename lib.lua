@@ -1415,8 +1415,8 @@ function Library:dropdown(options)
 		Name = "Dropdown",
 		StartingText = "Select...",
 		Items = {},
-		Callback = function(item) end,
-		checkCallback = function(item) end
+		Callback = function(item) return end,
+		checkCallback = function(item) return end
 	}, options)
 
 
@@ -1670,7 +1670,7 @@ function Library:dropdown(options)
 			local label = item[1]
 			local value = item[2]
 
-			if type(label) == "table" then print('wha') continue end
+			if type(label) == "table" then continue end
 
 			local newItem = itemContainer:object("TextButton", {
 				Theme = {
@@ -1680,7 +1680,6 @@ function Library:dropdown(options)
 				Text = label,
 				TextSize = 14
 			}):round(5)
-			print('MADE')
 
 			items[i] = {{label, value}, newItem}
 
@@ -1711,8 +1710,8 @@ function Library:dropdown(options)
 				end)
 
 				newItem.MouseButton1Click:connect(function()
-					local r = options.checkCallback(value)
-					if r ~= nil and not r then return end
+					--[[local r = options.checkCallback(value)
+					if r ~= nil and not r then return end]]--
 					toggle()
 					selectedText.Text = newItem.Text
 					selectedText:tween{Size = UDim2.fromOffset(selectedText.TextBounds.X + 20, 20), Length = 0.05}
