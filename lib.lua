@@ -1289,7 +1289,8 @@ function Library:toggle(options)
 		Name = "Toggle",
 		StartingState = false,
 		Description = nil,
-		Callback = function(state) end
+		Callback = function(state) end,
+		checkCallback = function() return end
 	}, options)
 
 	local toggleContainer = self.container:object("TextButton", {
@@ -1345,12 +1346,8 @@ function Library:toggle(options)
 	end
 
 	local function toggle()
-		if options.checkCallback then
-			local r = options.checkCallback()
-			if r ~= nil and not r then
-				return
-			end
-		end
+		local r = options.checkCallback()
+		if r ~= nil and not r then return end
 		toggled = not toggled
 		if toggled then
 			offIcon:crossfade(onIcon, 0.1)
@@ -1418,7 +1415,8 @@ function Library:dropdown(options)
 		Name = "Dropdown",
 		StartingText = "Select...",
 		Items = {},
-		Callback = function(item) return end
+		Callback = function(item) return end,
+		checkCallback = function() return end
 	}, options)
 
 
@@ -1556,6 +1554,8 @@ function Library:dropdown(options)
 			end)
 
 			newItem.MouseButton1Click:connect(function()
+				local r = options.checkCallback()
+				if r ~= nil and not r then return end
 				toggle()
 				selectedText.Text = newItem.Text
 				selectedText:tween{Size = UDim2.fromOffset(selectedText.TextBounds.X + 20, 20), Length = 0.05}
@@ -1710,6 +1710,8 @@ function Library:dropdown(options)
 				end)
 
 				newItem.MouseButton1Click:connect(function()
+					local r = options.checkCallback()
+					if r ~= nil and not r then return end
 					toggle()
 					selectedText.Text = newItem.Text
 					selectedText:tween{Size = UDim2.fromOffset(selectedText.TextBounds.X + 20, 20), Length = 0.05}
