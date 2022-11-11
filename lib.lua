@@ -1415,7 +1415,8 @@ function Library:dropdown(options)
 		Name = "Dropdown",
 		StartingText = "Select...",
 		Items = {},
-		Callback = function(item) return end
+		Callback = function(item) return end,
+		checkCallback = function(item) return end
 	}, options)
 
 
@@ -1553,6 +1554,8 @@ function Library:dropdown(options)
 			end)
 
 			newItem.MouseButton1Click:connect(function()
+				local r = options.checkCallback(value)
+				if r ~= nil and not r then return end
 				toggle()
 				selectedText.Text = newItem.Text
 				selectedText:tween{Size = UDim2.fromOffset(selectedText.TextBounds.X + 20, 20), Length = 0.05}
@@ -1707,6 +1710,8 @@ function Library:dropdown(options)
 				end)
 
 				newItem.MouseButton1Click:connect(function()
+					local r = options.checkCallback(value)
+					if r ~= nil and not r then return end
 					toggle()
 					selectedText.Text = newItem.Text
 					selectedText:tween{Size = UDim2.fromOffset(selectedText.TextBounds.X + 20, 20), Length = 0.05}
