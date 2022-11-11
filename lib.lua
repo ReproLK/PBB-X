@@ -1290,7 +1290,7 @@ function Library:toggle(options)
 		StartingState = false,
 		Description = nil,
 		Callback = function(state) end,
-		checkCallback = function(state) return end
+		checkCallback = function(state) end
 	}, options)
 
 	local toggleContainer = self.container:object("TextButton", {
@@ -1415,8 +1415,8 @@ function Library:dropdown(options)
 		Name = "Dropdown",
 		StartingText = "Select...",
 		Items = {},
-		Callback = function(item) return end,
-		checkCallback = function(item) return end
+		Callback = function(item) end,
+		checkCallback = function(item) end
 	}, options)
 
 
@@ -1667,6 +1667,7 @@ function Library:dropdown(options)
 		dropdownContainer:tween({Size = (not open and UDim2.new(1, -20, 0, 52)) or UDim2.new(1, -20, 0, 52 + newSize)})
 
 		for i, item in next, items do
+			print(item)
 			local label = item[1]
 			local value = item[2]
 
