@@ -1667,7 +1667,6 @@ function Library:dropdown(options)
 		dropdownContainer:tween({Size = (not open and UDim2.new(1, -20, 0, 52)) or UDim2.new(1, -20, 0, 52 + newSize)})
 
 		for i, item in next, items do
-			print(item)
 			local label = item[1]
 			local value = item[2]
 
@@ -1682,7 +1681,7 @@ function Library:dropdown(options)
 				TextSize = 14
 			}):round(5)
 			print('MADE')
-			
+
 			items[i] = {{label, value}, newItem}
 
 			do
