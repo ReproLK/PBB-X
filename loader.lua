@@ -1,9 +1,3 @@
-
-
-
-
-
-
 -- // Protected by luaGuard - Security Level premium
 
 -- This file was generated using Luraph Obfuscator v13.5.9
