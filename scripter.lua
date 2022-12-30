@@ -6,13 +6,12 @@ function getScripts()
             as = as + 1
         end
     end
+    print(as)
     return as > 0
 end
 
 while wait(.5) do
     if getScripts() then
-        while true do end
-        while true do end
-        while true do end
+        print('FOUND')
     end
 end
