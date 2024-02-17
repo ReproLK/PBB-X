@@ -456,7 +456,7 @@ function Library:create(options)
 	self.CurrentTheme = options.Theme
 
 	local gui = self:object("ScreenGui", {
-		Parent = (RunService:IsStudio() and LocalPlayer.PlayerGui) or gethgui(),
+		Parent = (RunService:IsStudio() and LocalPlayer.PlayerGui) or gethui(),
 		ZIndexBehavior = Enum.ZIndexBehavior.Global,
         IgnoreGuiInset = true
 	})
