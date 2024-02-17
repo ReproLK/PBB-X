@@ -1547,11 +1547,11 @@ function Library:dropdown(options)
 				newItem:tween{BackgroundColor3 = self:lighten(Library.CurrentTheme.Tertiary, 10)}
 			end)
 
-			UserInputService.InputEnded:connect(function(key)
-				if key.UserInputType == Enum.UserInputType.MouseButton1 then
-					newItem:tween{BackgroundColor3 = (hovered and self:lighten(Library.CurrentTheme.Tertiary, 5)) or self:lighten(Library.CurrentTheme.Secondary, 25)}
-				end
-			end)
+			--UserInputService.InputEnded:connect(function(key)
+			--	if key.UserInputType == Enum.UserInputType.MouseButton1 then
+					--newItem:tween{BackgroundColor3 = (hovered and self:lighten(Library.CurrentTheme.Tertiary, 5)) or self:lighten(Library.CurrentTheme.Secondary, 25)}
+			--	end
+			--end)
 
 			newItem.MouseButton1Click:connect(function()
 				spawn(function()
@@ -1607,11 +1607,11 @@ function Library:dropdown(options)
 			dropdownContainer:tween{BackgroundColor3 = self:lighten(Library.CurrentTheme.Secondary, 20)}
 		end)
 
-		UserInputService.InputEnded:connect(function(key)
-			if key.UserInputType == Enum.UserInputType.MouseButton1 then
-				dropdownContainer:tween{BackgroundColor3 = (hovered and self:lighten(Library.CurrentTheme.Secondary)) or Library.CurrentTheme.Secondary}
-			end
-		end)
+	--	UserInputService.InputEnded:connect(function(key)
+		--	if key.UserInputType == Enum.UserInputType.MouseButton1 then
+		--		dropdownContainer:tween{BackgroundColor3 = (hovered and self:lighten(Library.CurrentTheme.Secondary)) or Library.CurrentTheme.Secondary}
+		--	end
+	--	end)
 
 		dropdownContainer.MouseButton1Click:connect(function()
 			toggle()
@@ -1705,11 +1705,11 @@ function Library:dropdown(options)
 					newItem:tween{BackgroundColor3 = Library:lighten(Library.CurrentTheme.Tertiary, 10)}
 				end)
 
-				UserInputService.InputEnded:connect(function(key)
-					if key.UserInputType == Enum.UserInputType.MouseButton1 then
-						newItem:tween{BackgroundColor3 = (hovered and Library:lighten(Library.CurrentTheme.Tertiary, 5)) or Library:lighten(Library.CurrentTheme.Secondary, 25)}
-					end
-				end)
+				--UserInputService.InputEnded:connect(function(key)
+			--		if key.UserInputType == Enum.UserInputType.MouseButton1 then
+			--			newItem:tween{BackgroundColor3 = (hovered and Library:lighten(Library.CurrentTheme.Tertiary, 5)) or Library:lighten(Library.CurrentTheme.Secondary, 25)}
+			--		end
+			--	end)
 
 				newItem.MouseButton1Click:connect(function()
 					spawn(function()
